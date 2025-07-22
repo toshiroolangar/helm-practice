@@ -2,21 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: python-api
-  name: python-api
+    app: {{ .Values.appName }}
+  name: {{ .Values.appName }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: python-api
+      app: {{ .Values.appName }}
   template:
     metadata:
       labels:
-        app: python-api
+        app: {{ .Values.appName }}
     spec:
       containers:
       - image: toshiroolangar/python-flask-rest-api-project:latest
-        name: python-api
+        name: {{ .Values.appName }}
         ports:
           - containerPort: 80
         imagePullPolicy: IfNotPresent
