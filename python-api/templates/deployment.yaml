@@ -4,6 +4,7 @@ metadata:
   labels:
     app: {{ .Values.appName }}
   name: {{ .Values.appName }}
+  namespace: {{ .Values.namespace }}
 spec:
   replicas: 1
   selector:
@@ -15,7 +16,7 @@ spec:
         app: {{ .Values.appName }}
     spec:
       containers:
-      - image: toshiroolangar/python-flask-rest-api-project:latest
+      - image: {{ .Values.image.name }}:{{ .Values.image.tag }}
         name: {{ .Values.appName }}
         ports:
           - containerPort: 80
