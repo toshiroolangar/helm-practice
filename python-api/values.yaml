@@ -1,1 +1,5 @@
 appName: python-api
+namespace: default
+image:
+  name: toshiroolangar/python-flask-rest-api-project
+  tag: latest
