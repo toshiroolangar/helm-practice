@@ -1,0 +1,4 @@
+namespace: prod
+image:
+  name: toshiroolangar/python-flask-rest-api-project
+  tag: latest
