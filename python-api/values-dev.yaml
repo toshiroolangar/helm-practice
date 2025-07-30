@@ -1,4 +1,9 @@
 namespace: dev
-image:
-  name: toshiroolangar/python-flask-rest-api-project
-  tag: latest
+configmap:
+  name: python-app-config-v1
+  data: 
+    APP_NAME: "My Python Flask App"
+    ENVIRONMENT: "{{ .Values.namespace }}"
+    DATABASE_URL: "postgresql://localhost:5432/mydb"
+    DEBUG_MODE: "true"
+    WELCOME_MESSAGE: "Welcome to my Flask App! This is the DEVELOPMENT environment."
