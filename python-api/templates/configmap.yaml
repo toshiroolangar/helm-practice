@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.appName }}
+  namespace: {{ .Values.namespace }}
+data:
+  APP_NAME: "My Python Flash App"
+  ENVIRONMENT: "{{ .Values.namespace }}"
+  DATABASE_URL: "postgresql://localhost:5432/mydb"
+  DEBUG_MODE: "true"
+  WELCOME_MESSAGE: "Welcome to my Flask App! This is the {{ .Values.Namespace }} environment."
