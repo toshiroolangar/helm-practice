@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ .Values.appName }}
+  name: {{ .Values.configmap.name }}
   namespace: {{ .Values.namespace }}
 data:
-  APP_NAME: "My Python Flash App"
+  APP_NAME: "{{ .Values.configmap.data.APP_NAME }}"
   ENVIRONMENT: "{{ .Values.namespace }}"
-  DATABASE_URL: "postgresql://localhost:5432/mydb"
+  DATABASE_URL: "{{ .Values.configmap.data.DATABASE_URL }}"
   DEBUG_MODE: "true"
-  WELCOME_MESSAGE: "Welcome to my Flask App! This is the {{ .Values.Namespace }} environment."
+  WELCOME_MESSAGE: "{{ .Values.configmap.data.WELCOME_MESSAGE }}"
