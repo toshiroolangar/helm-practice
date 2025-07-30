@@ -1,3 +1,3 @@
 # How to access the application via Minikube?
-servicename=$(kubectl get svc -l "app=python-api" -o jsonpath="{.items[0].metadata.name}")
-minikube service $servicename
+servicename=$(kubectl get svc -l "app={{ .Values.appName }}" -o jsonpath="{.items[0].metadata.name}" -n {{ .Values.namespace }})
+kubectl port-forward service/{{ .Values.appName }} 9001:80 --namespace {{ .Values.namespace }}
