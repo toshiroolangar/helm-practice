@@ -2,7 +2,7 @@ appName: python-api
 namespace: default
 image:
   name: toshiroolangar/python-flask-image
-  tag: latest
+  tag: v4
 configmap:
   name: python-app-config-v1
   data: 

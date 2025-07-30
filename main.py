@@ -23,7 +23,7 @@ def get_config():
         "environment": os.getenv('ENVIRONMENT', 'Not Set'),
         "database_url": os.getenv('DATABASE_URL', 'Not Set'),
         "debug_mode": os.getenv('DEBUG_MODE', 'false')
-    
+
     }
     return jsonify(config_data)
   
