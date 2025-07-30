@@ -2,4 +2,12 @@ appName: python-api
 namespace: default
 image:
   name: toshiroolangar/python-flask-image
-  tag: v2
+  tag: latest
+configmap:
+  name: python-app-config-v1
+  data: 
+    APP_NAME: "My Python Flask App"
+    ENVIRONMENT: "{{ .Values.namespace }}"
+    DATABASE_URL: "postgresql://localhost:5432/mydb"
+    DEBUG_MODE: "true"
+    WELCOME_MESSAGE: "Welcome to my Flask App! This is the default environment."
