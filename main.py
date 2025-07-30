@@ -1,3 +1,4 @@
+import os
 from flask import Flask, jsonify, request
 
 app = Flask (__name__)
@@ -5,13 +6,25 @@ app = Flask (__name__)
 @app.route('/', methods=['GET'])
 def welcome():
   if(request.method == 'GET'):
-    data = {"data":"Welcome to my flask!"}
+    app_name = os.getenv('APP_NAME', 'Default Flask App')
+    welcome_message = os.getenv('WELCOME_MESSAGE', 'Welcome to my Flask App!')
+
+    data = {
+        "app_name": app_name,
+        "message": welcome_message
+    }
     return jsonify(data)
 
-@app.route('/hello', methods=['GET'])
-def helloworld():
+@app.route('/config', methods=['GET'])
+def get_config():
   if(request.method == 'GET'):
-    data = {"data":"Hello World!"}
+    config_data = {
+        "app_name": os.getenv('APP_NAME', 'Not Set'),
+        "environment": os.getenv('ENVIRONMENT', 'Not Set'),
+        "database_url": os.getenv('DATABASE_URL', 'Not Set'),
+        "debug_mode": os.getenv('DEBUG_MODE', 'false')
+    
+    }
     return jsonify(data)
   
 
