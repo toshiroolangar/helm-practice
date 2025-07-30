@@ -25,7 +25,7 @@ def get_config():
         "debug_mode": os.getenv('DEBUG_MODE', 'false')
     
     }
-    return jsonify(data)
+    return jsonify(config_data)
   
 
 if __name__ == '__main__':
