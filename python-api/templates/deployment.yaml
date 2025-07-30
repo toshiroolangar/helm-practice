@@ -21,3 +21,7 @@ spec:
         ports:
           - containerPort: 80
         imagePullPolicy: IfNotPresent
+        envFrom:
+        - configMapRef:
+            name: {{ .Values.appName }}
+        imagePullPolicy: Never
